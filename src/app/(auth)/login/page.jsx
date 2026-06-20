@@ -44,8 +44,8 @@ const LoginPage = () => {
     // }
    
 //  console.log(errors, "errors");
- console.log(watch('email'));
- console.log(watch('password'));
+//  console.log(watch('email'));
+//  console.log(watch('password'));
     
     return (
         <div className='container mx-auto min-h-[80vh] flex justify-center items-center bg-slate-100'>

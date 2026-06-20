@@ -1,17 +1,18 @@
-import {   Poppins } from "next/font/google";
+import dns from 'node:dns';
+dns.setServers(["8.8.8.8" , "8.8.4.4"])
+
+import { Geist, Poppins } from "next/font/google";
 import "./globals.css";
- 
 
-// export const geistSans = Geist({
-//   variable: "--font-geist-sans",
-//   subsets: ["latin"],
-// });
-
- 
 const poppins = Poppins({
-  variable: "--font-poppins",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
+
+const geistSans = Geist({
+  subsets: ["latin"],
+  variable: "--font-geist-sans",
 });
 
 export const metadata = {
@@ -21,18 +22,9 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html
-      lang="en"
-      data-theme="light"
-      className={`h-full antialiased`}
-    >
-      <body className={`${poppins.className} min-h-full flex flex-col`} cz-shortcut-listen="true">
-        {/* <Header/>
-        <Navbar/> */}
-        <main>
-          {children}
-        </main>
-        {/* <Footer/> */}
+    <html lang="en" data-theme="light" className="h-full antialiased">
+      <body className={`${poppins.className} min-h-full flex flex-col`}>
+        <main className="flex-1">{children}</main>
       </body>
     </html>
   );
